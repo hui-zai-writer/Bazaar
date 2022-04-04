@@ -1,0 +1,6 @@
+name: Bazaar
+version: '${project.version}'
+main: com.hui_cat.Bazaar
+api-version: 1.18
+authors: [ hui_cat, XU ]
+description: A simple plugin allows servers to create plugins.SELL and BUY freely!
