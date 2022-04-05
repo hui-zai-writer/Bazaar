@@ -25,7 +25,8 @@ public class BossBarEvents implements Listener {
                 Thread.sleep(20);
             }
             catch (InterruptedException e){
-                getLogger().info("Error! Thread has been interrupted!");
+                getLogger().info("[Error] Thread has been interrupted!");
+                getLogger().info(e.getMessage());
             }
         }
     }
