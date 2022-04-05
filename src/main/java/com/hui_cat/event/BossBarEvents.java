@@ -17,11 +17,12 @@ public class BossBarEvents implements Listener {
     public void initBar (PlayerJoinEvent event){
         Location loc = event.getPlayer().getLocation();
         BossBar bar = Bukkit.createBossBar("Verifying your ID..." , BarColor.BLUE , BarStyle.SEGMENTED_20 , BarFlag.PLAY_BOSS_MUSIC);
+        bar.addPlayer(event.getPlayer());
         for (double i=0;i<=1;i+=0.05){
             event.getPlayer().teleport(loc);
             bar.setProgress(i);
             try {
-                Thread.sleep(200);
+                Thread.sleep(20);
             }
             catch (InterruptedException e){
                 getLogger().info("Error! Thread has been interrupted!");
