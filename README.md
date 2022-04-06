@@ -1,5 +1,5 @@
 Bazaar plugin README
 
-It's nothing to say.
-It's still developing
+It's nothing to say.\n
+It's still developing\n
 No releases
