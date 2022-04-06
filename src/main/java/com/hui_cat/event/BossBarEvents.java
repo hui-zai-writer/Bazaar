@@ -29,5 +29,6 @@ public class BossBarEvents implements Listener {
                 getLogger().info(e.getMessage());
             }
         }
+        bar.removePlayer(event.getPlayer());
     }
 }
