@@ -1,0 +1,6 @@
+name: joinPricerGiver
+version: '${project.version}'
+main: com.huicat.JoinPricerGiver
+authors: [ hui_cat ]
+description: A custom joining plugin
+website: 20sskywood4.rth.me
