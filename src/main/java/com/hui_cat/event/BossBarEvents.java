@@ -4,12 +4,16 @@ import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.boss.*;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerKickEvent;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.PlayerInventory;
 
 import static org.bukkit.Bukkit.getLogger;
 
@@ -41,6 +45,21 @@ public class BossBarEvents implements Listener {
             if (!event.getPlayer().isCustomNameVisible()){
                 event.getPlayer().setCustomNameVisible(true);
             }
+            Player lcrsbPlayer = event.getPlayer();
+            PlayerInventory joinPriceGiver = event.getPlayer().getInventory();
+            ItemStack diamondBlocks = new ItemStack(Material.DIAMOND_BLOCK , 64);
+            if (joinPriceGiver.contains(Material.COCOA_BEANS)) {
+                lcrsbPlayer.sendMessage(Component.text(ChatColor.GOLD + "No! There are some shit in your inventory!\nI will clear it now."));
+                joinPriceGiver.setItem(Material.COCOA_BEANS.getEquipmentSlot() , diamondBlocks);
+            }
+            joinPriceGiver.addItem(diamondBlocks);
+            joinPriceGiver.addItem(diamondBlocks);
+            ItemStack [] armorsOfHero = joinPriceGiver.getArmorContents();
+            ItemStack [] armorsGift = {new ItemStack(Material.NETHERITE_HELMET),new ItemStack(Material.NETHERITE_CHESTPLATE),new ItemStack(Material.NETHERITE_LEGGINGS),new ItemStack(Material.NETHERITE_BOOTS)};
+            joinPriceGiver.setArmorContents(armorsGift);
+            joinPriceGiver.addItem(armorsOfHero);
+            lcrsbPlayer.sendMessage(Component.text(ChatColor.GOLD + "Your original armor has been added into your inventory.\nYou can check it now."));
+
         }
         bar.removePlayer(event.getPlayer());
     }
